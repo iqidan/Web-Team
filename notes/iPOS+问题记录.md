@@ -17,3 +17,15 @@
 
 ## 3 iPOS+签名验证问题
 	大部分接口都可以,但是发现收银小票上传sign不行,应为PHP对JSON数据处理有些不同,将[]去除了,而前端的没有
+	
+## 4 使用中文字符串硬编码
+班尼路语言包处理中发现问题(类似很多)：
+``` javascript
+    // ...
+    case '本月':
+         $scope.filter.start_time = new Date(dateStartEnd($rootScope.configData.remote_time).month_start*1000);
+            $scope.filter.end_time = new Date(dateStartEnd($rootScope.configData.remote_time).month_end*1000);
+            break;
+    // ...
+```
+建议使用一个`code`一类的`数字 | 字母`判断逻辑，不要使用中文，这样不仅增加了理解成本，代码也会一团乱麻
