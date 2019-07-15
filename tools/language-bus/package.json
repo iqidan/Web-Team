@@ -1,0 +1,14 @@
+{
+  "name": "language-bus",
+  "version": "1.0.0",
+  "description": "Extend and transform the language package",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "gwjlib@163.com",
+  "license": "ISC",
+  "dependencies": {
+    "simplebig": "0.0.3"
+  }
+}
