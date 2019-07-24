@@ -94,7 +94,15 @@ if (1==true) {
 console.log("foo==", foo);
 ```
 
+### 9 arguments参数问题
+```javascript
+    function f(a, b, c){
+        arguments[2] = 333;
+        console.log(c);
+    }
 
+    f(1,2,3);
+```
 
 
 
