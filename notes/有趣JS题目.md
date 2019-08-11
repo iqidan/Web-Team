@@ -104,5 +104,46 @@ console.log("foo==", foo);
     f(1,2,3);
 ```
 
+### 10 普通变量声明提示以及函数定义的提升并且函数定义提升优先级更高
+**注意:变量和函数声明在代码里的位置是不会动的，而是在编译阶段被放入内存中进行的。**
+变量以及函数声明规则
+    对于同名的变量声明，Javascript采用的是忽略原则，后声明的会被忽略，变量声明和赋值操作可以写在一起，但是只有声明会被提升，提升后变量的值默认为undefined，结果是在赋值操作执行前变量的值必为undefined
 
+    对于同名的函数声明，Javascript采用的是覆盖原则，先声明的会被覆盖，因为函数在声明时会指定函数的内容，所以同一作用域下一系列同名函数声明的最终结果是调用时函数的内容和最后一次函数声明相同
 
+    对于同名的函数声明和变量声明，采用的是忽略原则，由于在提升时函数声明会提升到变量声明之前，变量声明一定会被忽略，所以结果是函数声明有效
+```javascript
+    var a = 3;
+    function a(){}
+
+    console.log("a=", a);
+```
+```JavaScript
+//变量重复声明问题
+    var foo='hello'; 
+    (function(foo){
+        console.log(foo);
+        var foo=foo||'world';
+        console.log(foo);
+    })(foo);
+    console.log(foo); 
+```
+```javascript
+function Foo() {
+    getName = function () { console.log(1); };
+    console.log("this=", this);
+    return this;
+}
+Foo.getName = function () { console.log(2);};
+Foo.prototype.getName = function () { console.log(3);};
+var getName = function () { console.log(4);};
+function getName() { console.log(5);}
+//请说出下面的结果
+Foo.getName();
+getName();
+Foo().getName();
+getName();
+new Foo.getName();
+new Foo().getName();
+new new Foo().getName();
+```
