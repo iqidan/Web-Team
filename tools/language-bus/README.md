@@ -4,11 +4,11 @@
 ### configuration
 + 定义在package.json中(路径仅做参考，实际实用以自己项目路径为准)
 ``` json
-  "language": "node index.js"
+  "build": "node ./demo/demo.js"
 ```
 + 命令行执行
 ``` shell
-  npm run language
+  npm run build
 ```
 ### Useage
 + 传参格式：
