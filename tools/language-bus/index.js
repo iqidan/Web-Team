@@ -40,6 +40,9 @@ class LanguageBus {
       let val = origin[k];
       if (transfer) val = transfer(val);
       if (!target[k]) {
+        if(typeof(val) === "string"){
+          val = val.replace(/[\\]/g, "\\\\");
+        }
         str += `"${k}": "${val}",\r${spaces}`;
       }
     }
