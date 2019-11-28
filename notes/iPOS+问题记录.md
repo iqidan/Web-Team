@@ -41,10 +41,11 @@
 	php.ini 修改这两个参数
 		max_input_vars =10000
 		mssql.charset = 'GBK'
-	然后使用 service httpd stop
-	service httpd start
-	重启服务（不能使用restart,这个测试重启后解决不了问题）
-	然后重新数据同步
+	然后使用 service httpd stop => service httpd start
+	重启服务（不能使用restart,这个测试重启后解决不了问题 => 重新数据同步
+**注意: 该问题是pos/pos/update接口前端传递了payment, 但是由于数据量太大, payment被截掉了, 因此修改后台控制数据量字段值**
+	
+
 
 ## 8 iPOS+出问题调试方法
 ### 1 pos+中间层调试 跟踪到500错误
