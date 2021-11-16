@@ -68,4 +68,8 @@
 ## iPOS+返回500并提示"写入日志失败"
 	pos后台  api/core/tmp & logs 文件夹以及下面子文件给777权限
 
+## 谷歌打印无法连接，跨域问题
+	1、谷歌浏览器输入 chrome://flags/ 
+	2、找到 Block insecure private network requests 修改为 Disabled
+
 	
